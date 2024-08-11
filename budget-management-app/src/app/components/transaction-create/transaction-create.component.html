@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="title">
+    <title>{{ "transaction.Title" | translate }}</title>
+  </div>
+  <h3>{{ "transaction.Title" | translate }}</h3>
+  <div class="transaction">
+    <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="mx-5 my-5">
+        <mat-label>{{ "transaction.SelectCategory" | translate }}</mat-label>
+        <mat-select formControlName="category">
+          <div *ngFor="let category of dropdownValues" style="color: white">
+            <mat-option [value]="category">
+              {{ category.value }}
+            </mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{ "transaction.Amount" | translate }}</mat-label>
+        <input matInput formControlName="amount" type="number" required />
+        <mat-error
+          *ngIf="transactionForm.controls['amount'].hasError('required')"
+        >
+          {{ "transaction.TransactionAmountRequired" | translate }}
+        </mat-error>
+        <mat-error *ngIf="transactionForm.controls['amount'].hasError('min')">
+          {{ "transaction.AmountCondition" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="margin-top: 10%">
+        <mat-label>{{ "transaction.Description" | translate }}</mat-label>
+        <input matInput formControlName="description" type="text" required />
+      </mat-form-field>
+
+      <mat-form-field style="margin-top: 10%">
+        <mat-label>{{ "transaction.Time" | translate }}</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="transactionProcessingTime"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error
+          *ngIf="
+            transactionForm.controls['transactionProcessingTime'].hasError(
+              'required'
+            )
+          "
+        >
+          {{ "transaction.ProcessingTimeRequired" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <button class="btn" mat-raised-button color="primary" type="submit">
+        {{ "transaction.Save" | translate }}
+      </button>
+    </form>
+  </div>
+</div>

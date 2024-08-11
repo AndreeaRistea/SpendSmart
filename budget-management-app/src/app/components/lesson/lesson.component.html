@@ -1,0 +1,24 @@
+<div *ngIf="loading">Loading lessons...</div>
+<div *ngIf="error">{{ error }}</div>
+<div *ngIf="!loading && !error && lessons.length === 0">
+  <div class="no-lessons-message">
+    <p>Your financial plan is working out perfectly. Good luck ahead!</p>
+  </div>
+</div>
+
+<div *ngIf="!loading && !error && lessons.length > 0">
+  <div class="lessons-container">
+    <div class="lesson-card" *ngFor="let lesson of lessons">
+      <div class="card-content">
+        <div *ngIf="lesson.CoverImage" class="image-container">
+          <img
+            [src]="getCoverImageSrc(lesson.CoverImage)"
+            alt="Cover Image"
+            class="cover-image"
+            (click)="getFileText(lesson.FileText)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

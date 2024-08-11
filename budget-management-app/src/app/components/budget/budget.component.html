@@ -1,0 +1,70 @@
+<div class="container">
+  <h3>{{ "budget.UserBudget" | translate }}</h3>
+  <button class="btn btn-success mt-4" (click)="addNewBudget()">
+    <i class="fa-solid fa-plus"></i> {{ "budget.AddBudgets" | translate }}
+  </button>
+  <div *ngIf="budgets.length > 0; else noBudgets">
+    <button
+      style="margin-top: 30px; font-size: small; margin-left: 70%"
+      btn
+      (click)="toggleDisplay()"
+      class="btn btn-primary"
+    >
+      {{
+        (showPercent ? "budget.ShowValue" : "budget.ShowPercent") | translate
+      }}
+    </button>
+
+    <div class="row mt-4">
+      <div class="col-12 mb-3" *ngFor="let budget of budgets">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ Category[budget.Category] }}</h5>
+            <p class="card-text">
+              {{
+                showPercent
+                  ? round(budget.TotalPercentageSpent) +
+                    "% / " +
+                    budget.Percent +
+                    "%"
+                  : round(budget.TotalValueSpent) +
+                    "€ / " +
+                    round(budget.Value) +
+                    "€"
+              }}
+            </p>
+            <div class="button-group">
+              <button class="btn btn-primary" (click)="openUpdatePopup(budget)">
+                {{ "budget.UpdateBudget" | translate }}
+              </button>
+              <button
+                class="btn btn-danger"
+                (click)="confirmDeleteBudget(budget.Id)"
+              >
+                <i class="fa fa-trash"></i>
+                {{ "transaction.Delete" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="remaining-budget-card mt-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">
+            {{ "budget.RemainingPercentage" | translate }}
+          </h5>
+          <p class="card-text">{{ getRemainingPercentage() }}%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noBudgets>
+    <p class="mt-4" style="margin-left: 25%">
+      {{ "budget.NoBudgets" | translate }}
+    </p>
+  </ng-template>
+</div>

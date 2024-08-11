@@ -1,0 +1,46 @@
+<form [formGroup]="detailsForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="mx-5 my-5">
+    <mat-label>{{ "profile.SelectProfession" | translate }}</mat-label>
+    <mat-select formControlName="profession">
+      <mat-option
+        *ngFor="let profession of dropdownValues"
+        [value]="profession.value"
+      >
+        {{ profession.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="mx-5 my-5">
+    <input
+      matInput
+      formControlName="income"
+      type="number"
+      placeholder="{{ 'profile.Income' | translate }}"
+      required
+    />
+    <mat-error *ngIf="detailsForm.controls['income'].hasError('required')">
+      {{ "profile.IncomeRequired" | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="mx-5 my-5">
+    <mat-label>{{ "profile.FinancialEducation" | translate }}</mat-label>
+    <mat-select formControlName="levelFinancialEducation">
+      <mat-option
+        *ngFor="let level of levelDropdownValues"
+        [value]="level.value"
+      >
+        {{ level.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" type="submit">
+      {{ "profile.Save" | translate }}
+    </button>
+    <button mat-button type="button" (click)="Closepopup()">
+      {{ "profile.Close" | translate }}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,48 @@
+/* Stil pentru mesajul atunci când nu există lecții */
+.no-lessons-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Ajustează înălțimea după necesitate */
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 50px; /* Pentru a centra vertical mesajul */
+  color: #2c3e50; /* Ajustează culoarea după preferințe */
+}
+
+/* Container pentru toate lecțiile */
+.lessons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Spațiere între carduri */
+  justify-content: center; /* Centrare orizontală */
+  padding: 20px; /* Spațiere în jurul containerului */
+}
+
+/* Stil pentru fiecare card de lecție */
+.lesson-card {
+  flex: 0 1 calc(50% - 20px); /* Cardurile ocupă 50% din lățime minus spațiul de gap */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Umbra cardului */
+  border-radius: 8px; /* Colțuri rotunjite */
+  overflow: hidden; /* Previne depășirea conținutului */
+  background-color: #fff; /* Fundal alb pentru carduri */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container pentru imagine */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4; /* Fundal gri deschis */
+}
+
+/* Stil pentru imaginea de copertă */
+.cover-image {
+  max-width: 100%; /* Limitează lățimea imaginii */
+  max-height: 200px; /* Limitează înălțimea imaginii */
+  object-fit: cover; /* Păstrează proporțiile imaginii */
+}
+
+

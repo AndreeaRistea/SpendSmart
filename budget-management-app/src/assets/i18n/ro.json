@@ -1,0 +1,116 @@
+{
+    "login": {
+        "SignUp": "Înregistrare",
+        "UserName": "Numele utilizatorului",
+        "UserEmail": "Email",
+        "UserPassword": "Parolă",
+        "LogIn": "Conectare",
+        "ForgotYourPassword": "Ți-ai uitat parola?"
+    },
+    "details": {
+        "AddYourDetails": "Completează-ți detaliile",
+        "Income": "Venit",
+        "IncomeRequired": "Este obligatoriu să introduci venitul",
+        "SaveDetails":"Salvează"
+    },
+    "error": {
+        "NameRequired": "Numele este obligatoriu.",
+        "EmailRequired": "Email-ul este obligatoriu.",
+        "InvalidEmail": "Format de email invalid.",
+        "PasswordRequired": "Parola este obligatorie.",
+        "PasswordMinLength": "Parola trebuie să aibă cel puțin 6 caractere.",
+        "PasswordPattern": "Parola trebuie să conțină litere și cifre."
+    },
+    "start":{
+        "welcome": "Bun venit la aplicația Spend Smart!",
+        "control_finances": "Preia controlul asupra finanțelor tale fără efort.",
+        "divide_budget": "Împarte-ți bugetul în categorii, urmărește fiecare tranzacție,",
+        "visualize_health": "și vizualizează-ți comportamentul financiar cu grafice detaliate.",
+        "manage_budget_title": "Gestionează-ți bugetul pe categorii",
+        "manage_budget_desc": "Alocă și monitorizează eficient bugetul în diverse categorii.",
+        "track_transactions_title": "Urmărește fiecare tranzacție",
+        "track_transactions_desc": "Păstrează o evidență detaliată a veniturilor și cheltuielilor tale.",
+        "visualize_health_title": "Vizualizează-ți comportamentul financiar",
+        "visualize_health_desc": "Înțelege-ți mai bine finanțele cu grafice și rapoarte cuprinzătoare."
+    },
+    "budget": {
+        "UserBudget": "Buget",
+        "ShowValue": "Arată Valoarea",
+        "ShowPercent": "Arată procentul",
+        "UpdateBudget": "Modificare",
+        "NoBudgets": "Nu este niciun buget disponibil pentru nicio categorie, dar îți poți adăuga unul acum",
+        "AddBudgets":"Adaugă un nou buget pentru o categorie",
+        "AddBudgetForCategory": "Adaugă un buget pentru o categorie",
+        "SelectCategory": "Selectează o categorie",
+        "BudgetPercentage": "Procentaj",
+        "PecentageRequired": "Procentajul bugetului trebuie introdusă obligatoriu",
+        "IntervalPercentage": "Valoarea introdusă trebuie să fie cuprinsă între 0 și 100.",
+        "SaveBudget": "Salvează bugetul",
+        "IntervalError": "Valoare procentajului trebuie să fie cuprinsă între 0 și 100",
+        "ConfirmDeleteTitle": "Confirmă Ștergerea",
+        "ConfirmDeleteMessage": "Ești sigur că vrei să ștergi acest buget?",
+        "RemainingPercentage": "Procentaj nealocat"
+    },
+    "profile":
+    {
+        "Username": "Profilul lui {{username}}",
+        "Name":"Numele utilizatorului:",
+        "Email": "Email:",
+        "Income": "Valoarea venitului:",
+        "Profession": "Profesie:",
+        "LevelEducation": "Nivelul de educație financiară:",
+        "SelectProfession": "Selectează profesia",
+        "IncomeRequired": "Este obligatoriu să introduci valoarea venitului.",
+        "FinancialEducation":"Selectează nivelul de educație financiară",
+        "Save":"Salvează modificările",
+        "Edit":"Actualizează",
+        "Close": "Inchide"
+    },
+    "password": {
+        "ResetPassword": "Resetează parola",
+        "ResetInstruction": "Introdu adresa de email pentru resetarea parolei. Vei primi un cod pe adresa de email introdusă.",
+        "Email":"Email",
+        "SendCode": "Trimite codul de resetare",
+        "ConfirmCode": "Confirmă codul primit",
+        "ResetCodeInstruction": "Introdu codul pe care l-ai primit pe email.",
+        "Code": "Codul",
+        "SetPassword":"Creează o nouă parolă",
+        "PasswordInstruction":"Creează o nouă parolă puternică.",
+        "NewPassword":"Noua parola",
+        "ChangePassword":"Schimbă parola"
+    },
+
+    "setting" : {
+        "Title": "Setări",
+        "Logout":"Deconectare",
+        "SelectLanguage": "Selectează Limba"
+    },
+    "navData":{
+        "UserProfile":"Profilul utilizatorului",
+        "Budgets":"Bugete",
+        "Transactions":"Tranzacții",
+        "Statistics":"Statistici",
+        "Settings":"Setări",
+         "Lessons":"Lectii"
+    },
+    "transaction": {
+        "Title":"Tranzacție",
+        "NoTransactions":"Nu există tranzacții disponibile",
+        "Amount":"Suma cheltuită:",
+        "Description":"Descrierea tranzacției:",
+        "Time":"Data procesării:",
+        "Delete":"Anulare tranzacție",
+        "Update":"Modifică tranzacția",
+        "AddTransaction":"Adaugă o nouă tranzacție",
+        "SelectCategory":"Selectează categoria",
+        "TransactionAmountRequired":"Suma tranzacției trebuie introdusă obligatoriu și trebuie să fie mai mare decât 0.",
+        "AmountCondition":"Valoarea introdusă trebuie să fie mai mare ca 0.",
+        "ProcessingTimeRequired":"Data procesării tranzacției trebuie introdusă obligatoriu",
+        "Save":"Salvează tranzacția",
+        "UpdateTransaction":"Modifică tranzacția",
+        "AmountRequired":"Valoarea tranzacției trebuie introdusă obligatoriu",
+        "Cancel":"Anulare",
+        "ConfirmDeleteTitle": "Confirmă Ștergerea",
+        "ConfirmDeleteMessage": "Ești sigur că vrei să ștergi aceasta tranzactie?"
+    }
+}

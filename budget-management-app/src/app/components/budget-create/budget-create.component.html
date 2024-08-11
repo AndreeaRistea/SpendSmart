@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="title">
+    <title>{{ "budget.AddBudgetForCategory" | translate }}</title>
+  </div>
+  <h3>{{ "budget.AddBudgetForCategory" | translate }}</h3>
+  <div class="budget">
+    <form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="mx-5 my-5">
+        <mat-label>{{ "budget.SelectCategory" | translate }}</mat-label>
+        <mat-select formControlName="budgetCategory">
+          <div *ngFor="let category of budgetCategories" style="color: white">
+            <mat-option [value]="category">
+              {{ category.value }}
+            </mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field style="margin-top: 5%">
+        <mat-label style="margin-top: 5px">{{
+          "budget.BudgetPercentage" | translate
+        }}</mat-label>
+        <input matInput formControlName="percent" type="number" required />
+        <mat-error *ngIf="budgetForm.controls['percent'].hasError('required')">
+          {{ "budget.PecentageRequired" | translate }}
+        </mat-error>
+        <mat-error *ngIf="budgetForm.controls['percent'].hasError('min')">
+          {{ "budget.IntervalPercentage" | translate }}
+        </mat-error>
+        <mat-error *ngIf="budgetForm.controls['percent'].hasError('max')">
+          {{ "budget.IntervalPercentage" | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <button class="btn" mat-raised-button color="primary" type="submit">
+        {{ "budget.SaveBudget" | translate }}
+      </button>
+    </form>
+  </div>
+</div>

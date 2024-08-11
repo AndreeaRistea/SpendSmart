@@ -1,0 +1,14 @@
+<body>
+  <div>
+    <main>
+      <ng-container *ngIf="!isLoginRoute()">
+        <app-sidenav (onToggleSideNav)="toggle($event)">
+          <router-outlet> </router-outlet>
+        </app-sidenav>
+      </ng-container>
+      <ng-container *ngIf="isLoginRoute()">
+        <router-outlet> </router-outlet>
+      </ng-container>
+    </main>
+  </div>
+</body>

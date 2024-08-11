@@ -1,0 +1,34 @@
+<!-- budget-update.component.html-->
+<h2 mat-dialog-title>Update Budget</h2>
+<div mat-dialog-content>
+  <form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ "budget.BudgetPercentage" | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="percent"
+        type="number"
+        min="0"
+        max="100"
+        required
+      />
+      <mat-error *ngIf="budgetForm.controls['percent'].hasError('required')">
+        {{ "budget.PercentageRequired" | translate }}
+      </mat-error>
+      <mat-error
+        *ngIf="
+          budgetForm.controls['percent'].hasError('min') ||
+          budgetForm.controls['percent'].hasError('max')
+        "
+      >
+        {{ "budget.IntervalError" | translate }}
+      </mat-error>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="closePopup()">Cancel</button>
+      <button mat-button type="submit" [disabled]="!budgetForm.valid">
+        {{ "budget.UpdateBudget" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

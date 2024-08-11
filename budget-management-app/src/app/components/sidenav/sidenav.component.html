@@ -1,0 +1,22 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">SS</button>
+    <div class="logo-text" @fadeInOut *ngIf="collapsed">Spend Smart</div>
+  </div>
+  <ul *ngIf="sessionService.validUser" class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <a
+        class="sidenav-nav-link"
+        [routerLink]="data.routeLink"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="sidenav-link-icon {{ data.icon }}"></i>
+        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+          {{ data.label | translate }}
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+<ng-content></ng-content>

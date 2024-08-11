@@ -1,0 +1,32 @@
+<div class="container" *ngIf="userDetails">
+  <h3>{{ "profile.Username" | translate : { username: userDetails.Name } }}</h3>
+  <div class="edit-button-container">
+    <button (click)="openEditPopup()" class="edit-button">
+      <mat-icon class="icon">edit</mat-icon>
+      {{ "profile.Edit" | translate }}
+    </button>
+  </div>
+  <ul>
+    <li>
+      <p>{{ "profile.Name" | translate }} {{ userDetails.Name }}</p>
+    </li>
+    <li>
+      <p>{{ "profile.Email" | translate }} {{ userDetails.Email }}</p>
+    </li>
+    <li>
+      <p>{{ "profile.Income" | translate }} {{ userDetails.Income }} €</p>
+    </li>
+    <li>
+      <p>
+        {{ "profile.Profession" | translate }}
+        {{ profession[userDetails.Profession] }}
+      </p>
+    </li>
+    <li>
+      <p>
+        {{ "profile.LevelEducation" | translate }}
+        {{ level[userDetails.LevelFinancialEducation] }}
+      </p>
+    </li>
+  </ul>
+</div>

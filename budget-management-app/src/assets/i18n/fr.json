@@ -1,0 +1,114 @@
+{
+    "login": {
+        "SignUp": "S'inscrire",
+        "UserName": "Nom d'utilisateur",
+        "UserEmail": "Email",
+        "UserPassword": "Mot de passe",
+        "LogIn": "Connexion",
+        "ForgotYourPassword": "Mot de passe oublié ?"
+    },
+    "details": {
+        "AddYourDetails": "Ajoutez vos détails",
+        "Income": "Revenu",
+        "IncomeRequired": "Le revenu est requis",
+        "SaveDetails":"Sauvegarder"
+    },
+    "error": {
+        "NameRequired": "Le nom est requis.",
+        "EmailRequired": "L'email est requis.",
+        "InvalidEmail": "Format d'email invalide.",
+        "PasswordRequired": "Le mot de passe est requis.",
+        "PasswordMinLength": "Le mot de passe doit comporter au moins 6 caractères.",
+        "PasswordPattern": "Le mot de passe doit contenir des lettres et des chiffres."
+    },
+    "start": {
+        "welcome": "Bienvenue sur l'application Spend Smart!",
+        "control_finances": "Prenez le contrôle de vos finances sans effort.",
+        "divide_budget": "Divisez votre budget en catégories, suivez chaque transaction,",
+        "visualize_health": "et visualisez votre comportement financier avec des graphiques détaillés.",
+        "manage_budget_title": "Gérez votre budget par catégories",
+        "manage_budget_desc": "Allouez et surveillez efficacement votre budget dans diverses catégories.",
+        "track_transactions_title": "Suivez chaque transaction",
+        "track_transactions_desc": "Gardez une trace détaillée de vos revenus et dépenses.",
+        "visualize_health_title": "Visualisez votre comportement financier",
+        "visualize_health_desc": "Comprenez mieux vos finances avec des graphiques et des rapports complets."
+    },
+    "budget": {
+        "UserBudget": "Budget",
+        "ShowValue": "Afficher la valeur",
+        "ShowPercent": "Afficher le pourcentage",
+        "UpdateBudget": "Mettre à jour",
+        "NoBudgets": "Aucun budget disponible, mais vous pouvez ajouter le vôtre.",
+        "AddBudgets":"Ajouter un nouveau budget",
+        "AddBudgetForCategory": "Ajouter un budget pour la catégorie",
+        "SelectCategory": "Sélectionnez une catégorie",
+        "BudgetPercentage": "Pourcentage",
+        "PecentageRequired": "Le pourcentage du budget est requis",
+        "IntervalPercentage": "Entrez une valeur entre 0 et 100.",
+        "SaveBudget": "Sauvegarder le budget",
+        "IntervalError": "Le pourcentage doit être entre 0 et 100",
+        "ConfirmDeleteTitle": "Confirmer la suppression",
+        "ConfirmDeleteMessage": "Êtes-vous sûr de vouloir supprimer ce budget?",
+        "RemainingPercentage": "Pourcentage Restant"
+    },
+    "profile": {
+        "Username": "Profil de {{username}}",
+        "Name":"Nom :",
+        "Email": "Email :",
+        "Income": "Revenu :",
+        "Profession": "Profession :",
+        "LevelEducation": "Niveau d'éducation financière :",
+        "SelectProfession": "Sélectionnez une profession",
+        "IncomeRequired": "Le revenu est requis.",
+        "FinancialEducation":"Sélectionnez le niveau d'éducation financière",
+        "Save":"Sauvegarder",
+        "Edit":"Éditer",
+        "Close": "Fermer"
+    },
+    "password": {
+        "ResetPassword": "Réinitialiser le mot de passe",
+        "ResetInstruction": "Entrez votre email pour réinitialiser votre mot de passe. Vous recevrez un code par email.",
+        "Email":"Email",
+        "SendCode": "Envoyer le code de réinitialisation",
+        "ConfirmCode": "Confirmer le code",
+        "ResetCodeInstruction": "Entrez le code que vous avez reçu par email.",
+        "Code": "Code",
+        "SetPassword":"Créer un nouveau mot de passe",
+        "PasswordInstruction":"Créez un nouveau mot de passe fort.",
+        "NewPassword":"Nouveau mot de passe",
+        "ChangePassword":"Changer le mot de passe"
+    },
+    "setting": {
+        "Title": "Page des paramètres",
+        "Logout":"Se déconnecter",
+        "SelectLanguage": "Choisir la langue"
+    },
+    "navData": {
+        "UserProfile":"Profil utilisateur",
+        "Budgets":"Budgets",
+        "Transactions":"Transactions",
+        "Statistics":"Statistiques",
+        "Settings":"Paramètres",
+        "Lessons":"Cours"
+    },
+    "transaction": {
+        "Title":"Transaction",
+        "NoTransactions":"Aucune transaction disponible !",
+        "Amount":"Montant :",
+        "Description":"Description :",
+        "Time":"Date de traitement :",
+        "Delete":"Supprimer",
+        "Update":"Mettre à jour",
+        "AddTransaction":"Ajouter une nouvelle transaction",
+        "SelectCategory":"Sélectionnez une catégorie",
+        "TransactionAmountRequired":"Le montant de la transaction est requis et doit être supérieur à 0.",
+        "AmountCondition":"Entrez une valeur supérieure à 0.",
+        "ProcessingTimeRequired":"La date de traitement de la transaction est requise.",
+        "Save":"Sauvegarder la transaction",
+        "UpdateTransaction":"Mettre à jour la transaction",
+        "AmountRequired":"Le montant est requis",
+        "Cancel":"Annuler",
+        "ConfirmDeleteTitle": "Confirmer la suppression",
+        "ConfirmDeleteMessage":"Êtes-vous sûr de vouloir supprimer cette transaction ?"
+    }
+}

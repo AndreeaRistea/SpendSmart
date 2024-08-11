@@ -1,0 +1,118 @@
+{
+    "login": {
+        "SignUp": "Sign up",
+        "UserName": "User name",
+        "UserEmail": "Email",
+        "UserPassword": "Password",
+        "LogIn": "Login",
+        "ForgotYourPassword": "Forgot your password?"
+    },
+    "details": {
+        "AddYourDetails": "Add your details",
+        "Income": "Income",
+        "IncomeRequired": "User's income is required.",
+        "SaveDetails":"Save"
+    },
+    
+    "error": {
+        "NameRequired": "Name is required.",
+        "EmailRequired": "Email is required.",
+        "InvalidEmail": "Invalid email format.",
+        "PasswordRequired": "Password is required.",
+        "PasswordMinLength": "Password must be at least 6 characters long.",
+        "PasswordPattern": "Password must contain letters and numbers."
+    },
+    "start":{
+        "welcome": "Welcome to Spend Smart App!",
+        "control_finances": "Take control of your finances effortlessly.",
+        "divide_budget": "Divide your budget into categories, track every transaction,",
+        "visualize_health": "and visualize your financial behavior with detailed charts.",
+        "manage_budget_title": "Manage Your Budget by Categories",
+        "manage_budget_desc": "Efficiently allocate and monitor your budget across various categories.",
+        "track_transactions_title": "Track Every Transaction",
+        "track_transactions_desc": "Keep a detailed record of your income and expenses.",
+        "visualize_health_title": "Visualize Your Financial Behavior",
+        "visualize_health_desc": "Understand your finances better with comprehensive charts and reports."
+    },
+      
+    "budget": {
+        "UserBudget": "All Budgets",
+        "ShowValue": "Show Value",
+        "ShowPercent": "Show Percent",
+        "UpdateBudget": "Update",
+        "NoBudgets": "No budgets available yet, but you can add your own budgets.",
+        "AddBudgets":"Add new budget",
+        "AddBudgetForCategory": "Add the budget for category",
+        "SelectCategory": "Select category",
+        "BudgetPercentage": "Percentage",
+        "PecentageRequired": "Budget percentage is required.",
+        "IntervalPercentage": "Enter a value between 0 and 100.",
+        "SaveBudget": "Save Budget",
+        "IntervalError": "Percent must be between 0 and 100",
+        "ConfirmDeleteTitle": "Confirm Deletion",
+        "ConfirmDeleteMessage": "Are you sure you want to delete this budget?",
+        "RemainingPercentage": "Remaining Percentage"
+    },
+    "profile":
+    {
+        "Username": "{{username}}'s profile",
+        "Name":"Name:",
+        "Email": "Email:",
+        "Income": "Income:",
+        "Profession": "Profession:",
+        "LevelEducation": "Level Financial Education:",
+        "SelectProfession": "Select profession",
+        "IncomeRequired": "User's income is required.",
+        "FinancialEducation":"Select financial education",
+        "Save":"Save",
+        "Edit":"Edit",
+        "Close": "Close"
+    },
+    "password": {
+        "ResetPassword": "Reset password",
+        "ResetInstruction": "Enter your email to reset your password. You will receive a code by email that you will have to enter.",
+        "Email":"Email",
+        "SendCode": "Send Reset Code",
+        "ConfirmCode": "Confirm code",
+        "ResetCodeInstruction": "Enter the code that was sent to you by email.",
+        "Code": "Code",
+        "SetPassword":"Set New Password",
+        "PasswordInstruction":"Create a new and strong password.",
+        "NewPassword":"New Password",
+        "ChangePassword":"Change Password"
+    },
+
+    "setting" : {
+        "Title": "Settings",
+        "Logout":"Logout",
+        "SelectLanguage": "Select Language"
+    },
+    "navData":{
+        "UserProfile":"User Profile",
+        "Budgets":"Budgets",
+        "Transactions":"Transactions",
+        "Statistics":"Statistics",
+        "Settings":"Settings",
+        "Lessons":"Lessons"
+    },
+    "transaction": {
+        "Title":"Transaction",
+        "NoTransactions":"No transactions available!",
+        "Amount":"Amount:",
+        "Description":"Description:",
+        "Time":"Processing Time:",
+        "Delete":"Delete",
+        "Update":"Update",
+        "AddTransaction":"Add new transaction",
+        "SelectCategory":"Select Category",
+        "TransactionAmountRequired":" Transaction amount is required and greater than 0.",
+        "AmountCondition":"Enter a value greater than 0.",
+        "ProcessingTimeRequired":"Transaction processing time is required.",
+        "Save":"Save Transaction",
+        "UpdateTransaction":"Update Transaction",
+        "AmountRequired":"Amount is required",
+        "Cancel":"Cancel",
+        "ConfirmDeleteTitle": "Confirm Deletion",
+        "ConfirmDeleteMessage": "Are you sure you want to delete this transaction?"
+    }
+}

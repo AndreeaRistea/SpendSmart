@@ -1,0 +1,130 @@
+<div class="logo-container auth-logo">
+  <button class="logo">SS</button>
+  <div class="logo-text">Spend Smart</div>
+</div>
+<div class="auth" *ngIf="showAuth">
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true" />
+
+    <div class="signup">
+      <form [formGroup]="signupForm" (submit)="onSignUp()">
+        <label for="chk" aria-hidden="true">
+          {{ "login.SignUp" | translate }}</label
+        >
+        <input
+          type="text"
+          name="txt"
+          placeholder="{{ 'login.UserName' | translate }}"
+          required=""
+          formControlName="name"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="{{ 'login.UserEmail' | translate }}"
+          required=""
+          formControlName="email"
+        />
+        <div class="password-wrapper">
+          <input
+            type="{{ type }}"
+            name="pswd"
+            placeholder="{{ 'login.UserPassword' | translate }}"
+            required=""
+            formControlName="password"
+          />
+          <i class="far fa-eye" (click)="hideShowPass()"></i>
+        </div>
+
+        <button>{{ "login.SignUp" | translate }}</button>
+      </form>
+    </div>
+
+    <div class="login">
+      <form [formGroup]="loginForm" (submit)="onLogin()">
+        <label for="chk" aria-hidden="true">{{
+          "login.LogIn" | translate
+        }}</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="{{ 'login.UserEmail' | translate }}"
+          required=""
+          formControlName="email"
+        />
+        <div class="password-wrapper">
+          <input
+            type="{{ type }}"
+            name="pswd"
+            placeholder="{{ 'login.UserPassword' | translate }}"
+            required=""
+            formControlName="password"
+          />
+          <i class="far fa-eye" (click)="hideShowPass()"></i>
+        </div>
+        <button>{{ "login.LogIn" | translate }}</button>
+      </form>
+      <div class="forgot-password">
+        <a (click)="navigateToForgotPassword()">{{
+          "login.ForgotYourPassword" | translate
+        }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="details" *ngIf="!showAuth">
+  <div class="mainDetails">
+    <div class="title">
+      <label class="header-text">{{
+        "details.AddYourDetails" | translate
+      }}</label>
+    </div>
+    <div class="budget">
+      <form [formGroup]="detailsForm" (ngSubmit)="onDetailsSave()">
+        <mat-form-field>
+          <mat-label>{{ "profile.SelectProfession" | translate }}</mat-label>
+          <mat-select formControlName="profession">
+            <mat-option
+              *ngFor="let profession of dropdownValues"
+              [value]="profession.value"
+            >
+              {{ profession.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="income"
+            type="number"
+            placeholder="{{ 'profile.Income' | translate }}"
+            required
+          />
+          <mat-error
+            *ngIf="detailsForm.controls['income'].hasError('required')"
+          >
+            {{ "details.IncomeRequired" | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>{{ "profile.FinancialEducation" | translate }}</mat-label>
+          <mat-select formControlName="levelFinancialEducation">
+            <mat-option
+              *ngFor="let level of levelDropdownVlues"
+              [value]="level.value"
+            >
+              {{ level.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button class="btn" mat-raised-button color="primary" type="submit">
+          {{ "details.SaveDetails" | translate }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

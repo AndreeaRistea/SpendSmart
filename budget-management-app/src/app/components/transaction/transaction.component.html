@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="title">
+    <title>{{ "transaction.Title" | translate }}</title>
+  </div>
+
+  <h3>{{ "transaction.Title" | translate }}</h3>
+  <button class="btn btn-primary mt-3" (click)="addNewTransaction()">
+    <i class="fa-solid fa-plus"></i>
+    {{ "transaction.AddTransaction" | translate }}
+  </button>
+  <div id="transactionList">
+    <div *ngIf="transactions.length === 0">
+      <p class="mt-4" style="margin-left: 25%">
+        {{ "transaction.NoTransactions" | translate }}
+      </p>
+    </div>
+    <div *ngIf="transactions.length > 0">
+      <div class="card mb-3" *ngFor="let transaction of transactions">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ categoryDisplay[transaction.Category] }}
+          </h5>
+          <p class="card-text">
+            {{ "transaction.Amount" | translate }} {{ transaction.Amount }} €
+          </p>
+          <p class="card-text">
+            {{ "transaction.Description" | translate }}
+            {{ transaction.Description }}
+          </p>
+          <p class="card-text">
+            {{ "transaction.Time" | translate }}
+            {{ transaction.TransactionProcessingTime | date }}
+          </p>
+          <div class="button-group">
+            <button
+              class="btn btn-light"
+              (click)="openUpdatePopup(transaction)"
+            >
+              {{ "transaction.Update" | translate }}
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="confirmDeleteTransaction(transaction.TransactionId)"
+            >
+              <i class="fa fa-trash"></i> {{ "transaction.Delete" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

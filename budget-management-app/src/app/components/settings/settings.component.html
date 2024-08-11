@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="title">
+    <h3>{{ "setting.Title" | translate }}</h3>
+  </div>
+  <div class="language-selector">
+    <label for="language-select">{{
+      "setting.SelectLanguage" | translate
+    }}</label>
+    <select
+      class="form-control"
+      #selectedLang
+      (change)="switchLang(selectedLang.value)"
+    >
+      <option
+        *ngFor="let language of translateService.getLangs()"
+        [value]="language"
+        [selected]="language === translateService.currentLang"
+      >
+        {{ language }}
+      </option>
+    </select>
+  </div>
+  <button class="btn" (click)="logout()">
+    {{ "setting.Logout" | translate }}
+    <i class="fa-solid fa-right-from-bracket"></i>
+  </button>
+</div>

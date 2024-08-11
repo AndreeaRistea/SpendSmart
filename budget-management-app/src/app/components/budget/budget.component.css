@@ -1,0 +1,114 @@
+.container {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn-success {
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  border-color: #004085;
+  margin-left: 25%;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  flex: 1 1 300px;
+  margin: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  margin-left: 25%;
+  color: white;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: white;
+}
+
+.btn-primary {
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  border-color: #004085;
+  margin-left: 25%;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+  margin-right: 8px;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-left: 25%;
+}
+
+.remaining-budget-card {
+  display: flex;
+  justify-content: center;
+  margin-left: 25%;
+}
+
+.remaining-budget-card .card {
+  flex: 0 1 200px;
+  margin: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  color: white;
+}
+
+.remaining-budget-card .card-body {
+  padding: 10px;
+}
+
+.remaining-budget-card .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.remaining-budget-card .card-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
