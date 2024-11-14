@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetManagementAPI", "BudgetManagementAPI\BudgetManagementAPI.csproj", "{4194B455-A3BB-4D0A-9924-0CFBEBE721EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetManagementAPI.BgService", "BudgetManagement.BgService\BudgetManagementAPI.BgService.csproj", "{5F1358B3-D7C3-4FD1-94B4-3DF5E48C917B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetManagementAPI.BgService", "BudgetManagement.BgService\BudgetManagementAPI.BgService.csproj", "{5F1358B3-D7C3-4FD1-94B4-3DF5E48C917B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetManagementApi.Dtos", "BudgetManagementApi.Dtos\BudgetManagementApi.Dtos.csproj", "{F5F8134B-B17F-45C2-AF6E-ECDFC8D70FC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5F1358B3-D7C3-4FD1-94B4-3DF5E48C917B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1358B3-D7C3-4FD1-94B4-3DF5E48C917B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F1358B3-D7C3-4FD1-94B4-3DF5E48C917B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5F8134B-B17F-45C2-AF6E-ECDFC8D70FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5F8134B-B17F-45C2-AF6E-ECDFC8D70FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5F8134B-B17F-45C2-AF6E-ECDFC8D70FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5F8134B-B17F-45C2-AF6E-ECDFC8D70FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

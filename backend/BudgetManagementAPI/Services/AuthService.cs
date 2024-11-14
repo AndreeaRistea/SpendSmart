@@ -49,8 +49,35 @@ public class AuthService : IAuthService
         { AuthResponse = mappedUser,
          RefreshToken = jwt.RefreshToken
         };
+    }
 
+    public async Task<AuthResultModel?> LoginAsync(CodeLoginRequestDto codeLoginRequest)
+    {
+        var user = await _unitOfWork.Users
+            .FirstOrDefaultAsync(user => user.Email.Equals(codeLoginRequest.Email)
+            && user.CodeResetPassword != null && user.CodeResetPassword.Equals(codeLoginRequest.CodeResetPassword));
 
+        if (user == null) return null;
+
+        var oneTimeCodeExpires = user.TimeCodeExpires;
+
+        user.CodeResetPassword = null;
+        user.TimeCodeExpires = null;
+
+        if (oneTimeCodeExpires < DateTime.UtcNow) return null;
+
+        var jwt = CreateJwt(user);
+        await _unitOfWork.SaveChangesAsync();
+
+        var mappedUser = AuthResponseDto.MapFromUser(user, _mapper);
+        mappedUser.Token = jwt.Token;
+        mappedUser.RefreshToken = jwt.RefreshToken.Token;
+
+        return new AuthResultModel
+        {
+            AuthResponse = mappedUser,
+            RefreshToken = jwt.RefreshToken
+        };
     }
 
     async Task<AuthResultModel?> IAuthService.RegisterAsync(RegisterRequestDto registerRequest)
@@ -115,9 +142,14 @@ public class AuthService : IAuthService
             new(nameof(ClaimTypes.Email), user.Email)
         };
 
-        var key = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(_configuration[Constants.Token.JwtKey] ?? throw new InvalidOperationException()));
-
+        //var key = new SymmetricSecurityKey(
+        //    Encoding.UTF8.GetBytes(_configuration[Constants.Token.JwtKey] ?? throw new InvalidOperationException()));
+        string jwtKey = _configuration[Constants.Token.JwtKey];
+        if (string.IsNullOrEmpty(jwtKey))
+        {
+            throw new InvalidOperationException("JWT key configuration is missing or invalid.");
+        }
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
         var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
         var token = new JwtSecurityToken(
@@ -174,33 +206,6 @@ public class AuthService : IAuthService
         return true;
     }
 
-    public async Task<AuthResultModel?> LoginAsync(CodeLoginRequestDto codeLoginRequest)
-    {
-        var user = await _unitOfWork.Users
-            .FirstOrDefaultAsync(user => user.Email.Equals(codeLoginRequest.Email)
-            && user.CodeResetPassword.Equals(codeLoginRequest.CodeResetPassword));
 
-        if (user == null) return null;
-
-        var oneTimeCodeExpires = user.TimeCodeExpires;
-
-        user.CodeResetPassword = null;
-        user.TimeCodeExpires = null;
-
-        if (oneTimeCodeExpires < DateTime.UtcNow) return null;
-
-        var jwt = CreateJwt(user);
-        await _unitOfWork.SaveChangesAsync();
-
-        var mappedUser = AuthResponseDto.MapFromUser(user, _mapper);
-        mappedUser.Token = jwt.Token;
-        mappedUser.RefreshToken = jwt.RefreshToken.Token;
-
-        return new AuthResultModel
-        {
-            AuthResponse = mappedUser,
-            RefreshToken = jwt.RefreshToken
-        };
-    }
 }
 

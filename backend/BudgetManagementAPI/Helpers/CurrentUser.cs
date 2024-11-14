@@ -40,7 +40,7 @@ public class CurrentUser
         {
             if (_userName != null) return _userName;
 
-            return _userName = _httpContextAccessor.HttpContext.User.Claims
+            return _userName = _httpContextAccessor.HttpContext?.User.Claims
                 .FirstOrDefault(claim => claim.Type.Equals(nameof(ClaimTypes.Name)))?.Value;
         }
     }
@@ -51,7 +51,7 @@ public class CurrentUser
         {
             if(_email != null) return _email;
 
-            return _email = _httpContextAccessor.HttpContext.User.Claims
+            return _email = _httpContextAccessor.HttpContext?.User.Claims
                 .FirstOrDefault(claim => claim.Type.Equals(nameof(ClaimTypes.Email)))?.Value;
         }
     }

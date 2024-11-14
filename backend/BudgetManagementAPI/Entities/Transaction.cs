@@ -15,7 +15,7 @@ public class Transaction
     public virtual User User { get; set; }
 
     [ForeignKey(nameof(Budget))]
-    public Guid? BudgetId { get; set; }
+    public required Guid BudgetId { get; set; }
 
     public virtual Budget Budget { get; set; }
 

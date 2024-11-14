@@ -18,14 +18,11 @@ public class UserController : ControllerBase
     private readonly IAuthService _authService;
     private readonly CurrentUser _currentUser;
     private readonly IUserService _userService;
-    private readonly IMailService _mailService;
-    public UserController (IAuthService authService, IUserService userService, CurrentUser currentUser,
-        IMailService mailService)
+    public UserController (IAuthService authService, IUserService userService, CurrentUser currentUser)
     {
         _authService = authService;
         _userService = userService; 
         _currentUser = currentUser;
-        _mailService = mailService;
     }
 
 
@@ -72,7 +69,7 @@ public class UserController : ControllerBase
 
 
     [HttpPost("updateDetails/{userId}")]
-    //[Authorize]
+    [Authorize]
     public async Task<IActionResult> UpdateDetails([FromBody] UserDetailsUpdateDto detailsDto)
     {
         var userId = detailsDto.UserId;

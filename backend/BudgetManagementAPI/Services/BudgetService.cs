@@ -24,6 +24,12 @@ public class BudgetService  : IBudgetService
         var budgets = await _unitOfWork.Budgets.Where(b => b.UserId == UserId)
            .ToListAsync();
         var user = await _unitOfWork.Users.FirstOrDefaultAsync(u => u.Id == UserId);
+
+        if (user == null)
+        {
+            throw new ArgumentNullException($"User with ID {UserId} not found.");
+        }
+
         var budgetDtos = budgets.Select(budget =>  new BudgetDto
         {
             Id = budget.Id,
@@ -33,6 +39,7 @@ public class BudgetService  : IBudgetService
             TotalPercentageSpent = budget.TotalPercentageSpent,
             TotalValueSpent = (float)((budget.TotalPercentageSpent / 100.0) * user.Income),
         }).ToList();
+
         return budgetDtos;
     }
     public async Task <List<BudgetDto>> GetAllAsync (Guid UserId)
@@ -41,18 +48,27 @@ public class BudgetService  : IBudgetService
             .ToListAsync();
         var user = await _unitOfWork.Users.FirstOrDefaultAsync(u=>u.Id==UserId);
 
+        if (user == null)
+        {
+            throw new ArgumentNullException($"User with ID {UserId} not found.");
+        }
 
         var categories = Enum.GetValues<Category>();
 
 
         var budgetDtos = categories.Select(category => {
-            var budget = budgets.FirstOrDefault(b => b.Category == category);
+            var budget = budgets.Find(b => b.Category == category);
 
             if(budget == null)
             {
                 return new BudgetDto
                 {
+                    Id = new Guid(),
                     Category = category,
+                    Percent = 0,
+                    Value = 0,
+                    TotalPercentageSpent = 0,
+                    TotalValueSpent = 0,
                 };
             }
 
@@ -79,7 +95,7 @@ public class BudgetService  : IBudgetService
 
         if (budgetCategory == null)
         {
-            return null;
+            throw new Exception($"Budget category not found.");
         }
 
         var budgetDto = new BudgetDisplayDto
@@ -95,7 +111,7 @@ public class BudgetService  : IBudgetService
     public async Task <BudgetDto> CreateBudgetAsync (Guid userId, BudgetDto budget)
     {
         var existingBudget = await _unitOfWork.Budgets.FirstOrDefaultAsync(b => b.UserId == userId && b.Category == budget.Category);
-       
+
         if (existingBudget != null)
         {
             var updateBudgetDto = new BudgetUpdateDto
@@ -109,6 +125,7 @@ public class BudgetService  : IBudgetService
         {
             var newBudget = new Budget
             {
+                Id = new Guid(),
                 UserId = userId,
                 Category = budget.Category,
                 Percent = budget.Percent,
@@ -129,7 +146,7 @@ public class BudgetService  : IBudgetService
 
         if (existingBudget == null)
         {
-            return null;
+            throw new ArgumentNullException($"Budget not found.");
         }
         existingBudget.Percent = budgetUpdateDto.Percent; 
         var newBudget = new Budget
@@ -138,6 +155,7 @@ public class BudgetService  : IBudgetService
             Category = existingBudget.Category,
             Percent = existingBudget.Percent,
             TotalPercentageSpent = existingBudget.TotalPercentageSpent,
+            UserId = UserId,
            
         };
         await _unitOfWork.SaveChangesAsync();
@@ -153,7 +171,7 @@ public class BudgetService  : IBudgetService
 
         if (budgetToDelete == null) 
         {
-            throw new Exception("Budget not found.");
+            throw new ArgumentNullException("Budget not found.");
             
         }
 
@@ -163,7 +181,7 @@ public class BudgetService  : IBudgetService
 
         if (transactions.Count > 0)
         {
-            throw new Exception("Cannot delete budget with associated transactions.");
+            throw new NotSupportedException("Cannot delete budget with associated transactions.");
         }
 
         _unitOfWork.Budgets.Remove(budgetToDelete);

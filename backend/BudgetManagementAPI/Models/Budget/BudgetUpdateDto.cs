@@ -2,7 +2,7 @@
 
 public class BudgetUpdateDto
 {
-    public Guid Id {  get; set; }
-    public float Percent {  get; set; }
+    public required Guid Id {  get; set; }
+    public required float Percent {  get; set; }
 }
 

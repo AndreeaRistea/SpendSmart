@@ -27,7 +27,6 @@ public class TransactionService : ITransactionService
     public async Task<TransactionDto> CreateTransactionAsync (Guid userId, TransactionDto transaction)
     {
         var budget = await _unitOfWork.Budgets.FirstOrDefaultAsync(b => b.UserId == userId && b.Category == transaction.Category);
-        var user = await _unitOfWork.Users.FirstOrDefaultAsync(u => u.Id == userId);
         if (budget == null)
         {
             throw new HttpRequestException("No budget allocated for this category", null, HttpStatusCode.BadRequest);
@@ -40,7 +39,7 @@ public class TransactionService : ITransactionService
             BudgetId = budget.Id,
             Category = transaction.Category,
             Amount = transaction.Amount,
-            Descripiton = transaction.Description,
+            Descripiton = transaction.Description!,
             TransactionProcessingTime = transaction.TransactionProcessingTime,
         };
         _unitOfWork.Transactions.Add(newTransaction);
@@ -56,11 +55,13 @@ public class TransactionService : ITransactionService
                         t.TransactionId == transactionId);
         if (transaction == null)
         {
-            throw new Exception("Transaction not found.");
+            throw new ArgumentNullException("Transaction not found.");
         }
         var budget = await _unitOfWork.Budgets.FirstOrDefaultAsync(b => b.Id == transaction.BudgetId);
-        var user = await _unitOfWork.Users.FirstOrDefaultAsync(u=> u.Id == transaction.UserId);
-
+        if (budget == null)
+        {
+            throw new ArgumentNullException("Budget not found.");
+        }
         _unitOfWork.Transactions.Remove(transaction);
         await _unitOfWork.SaveChangesAsync();
 
@@ -76,7 +77,7 @@ public class TransactionService : ITransactionService
                        t.TransactionId == transactionUpdate.TransactionId);
         if (transaction == null)
         {
-            throw new Exception("Transaction not found.");
+            throw new ArgumentNullException("Transaction not found.");
         }
         var budget = await _unitOfWork.Budgets.FirstOrDefaultAsync(b => b.Id == transaction.BudgetId);
         var user = await _unitOfWork.Users.FirstOrDefaultAsync(u => u.Id == transaction.UserId);
@@ -98,6 +99,7 @@ public class TransactionService : ITransactionService
        
         var transactionDtos = transactions.Select(transaction => new TransactionDto
         {
+            TransactionId = transaction.TransactionId,
             Category = category,
             Amount = transaction.Amount,
             Description = transaction.Descripiton,
@@ -126,8 +128,15 @@ public class TransactionService : ITransactionService
 
     public async Task CalculateAmountSpent(Guid budgetId)
     {
-        var budget = await _unitOfWork.Budgets.Include(u => u.User).Include(t => t.Transactions).FirstOrDefaultAsync(b => b.Id == budgetId);
-        var totalSpent = budget.Transactions.Sum(x => x.Amount);
+        var budget = await _unitOfWork.Budgets.Include(u => u.User)
+            .Include(t => t.Transactions)
+            .FirstOrDefaultAsync(b => b.Id == budgetId);
+        if (budget == null)
+        {
+            throw new ArgumentNullException("Budget not found");
+        }
+        var totalSpent = budget.Transactions?.Sum(x => x.Amount) ?? 0;
+        
         var income = budget.User.Income;
         var budgetValue = (budget.Percent / 100) * income;
         float totalSpentPercent = (float)((totalSpent * budget.Percent) / budgetValue);

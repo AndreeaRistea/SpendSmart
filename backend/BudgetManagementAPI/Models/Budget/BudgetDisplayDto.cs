@@ -4,7 +4,7 @@ namespace BudgetManagementAPI.Models.Budget;
 
 public class BudgetDisplayDto
 {
-    public Category Category { get; set; }
-    public float Value { get; set; }
+    public required Category Category { get; set; }
+    public required float Value { get; set; }
 }
 

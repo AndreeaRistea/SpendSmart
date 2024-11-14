@@ -1,6 +1,6 @@
 ﻿namespace BudgetManagementAPI.Utils
 {
-    public class Constants
+    public static class Constants
     {
         public const string DbConnectionString = "BudgetManagementDb";
 

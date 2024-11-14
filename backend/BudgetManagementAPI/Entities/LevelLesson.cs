@@ -9,13 +9,13 @@ namespace BudgetManagementAPI.Entities
         [Key]
         public Guid LevelLessonId { get; set; }
 
-        [Column(TypeName = "text")] ///Create migration and applied it on db
+        [Column(TypeName = "text")]
         public Level Level { get; set; }
 
         public required double MinValue {  get; set; }
 
         public required double MaxValue { get; set;}
 
-        public ICollection<Lesson> Lessons { get; set; }
+        public ICollection<Lesson>? Lessons { get; set; }
     }
 }

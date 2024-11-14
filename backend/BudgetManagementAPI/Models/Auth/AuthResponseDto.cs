@@ -8,7 +8,7 @@ namespace BudgetManagementAPI.Models.Auth
         public string? Token {  get; set; }
         public string? RefreshToken {  get; set; }
 
-        public static AuthResponseDto MapFromUser (Entities.User user, IMapper mapper)
+        public static new AuthResponseDto MapFromUser (Entities.User user, IMapper mapper)
         {
             var dto = mapper.Map<AuthResponseDto>(user);
             return dto;

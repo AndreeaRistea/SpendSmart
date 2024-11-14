@@ -4,12 +4,9 @@ namespace BudgetManagementAPI.Models.User;
 
 public class UserDetailsUpdateDto
 {
-    public Guid UserId { get; set; }
-
-    public double Income { get; set; }
-
-    public Profession Profession { get; set; }
-
-    public Level Level { get; set; }
+    public required Guid UserId { get; set; }
+    public required double Income { get; set; }
+    public required Profession Profession { get; set; }
+    public required Level Level { get; set; }
 }
 

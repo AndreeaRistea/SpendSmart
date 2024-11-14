@@ -13,23 +13,20 @@ namespace BudgetManagementAPI.Entities
 
         public virtual LevelLesson Level { get; set; }
 
-        //[ForeignKey(nameof(User))]
-        //public UserId { get; set; }
-
-        public virtual List<User> Users { get; set; }
+        public virtual List<User>? Users { get; set; }
 
         public byte[]? CoverImage { get; set; }
 
         [DataType(DataType.Upload)]
         [NotMapped]
-        public IFormFile CoverImageFile { get; set; }
+        public required IFormFile CoverImageFile { get; set; }
         
         public byte[]? FileText { get; set; }
 
         [DataType(DataType.Upload)]
         [NotMapped]
-        public IFormFile ContentLesson { get; set; }    
+        public required IFormFile ContentLesson { get; set; }    
 
-        public string LessonContentName {get; set; }
+        public string? LessonContentName {get; set; }
     }
 }

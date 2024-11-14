@@ -38,7 +38,7 @@ public class LessonController : ControllerBase
         return Ok(lessonAdded);
     }
 
-    [HttpGet("add-user-lesson/{userId}")]
+    [HttpGet("add-user-lesson")]
     [Authorize] 
     public async Task<IActionResult> AddUserLesson ()
     {

@@ -4,6 +4,7 @@ using BudgetManagementAPI.Entities;
 using BudgetManagementAPI.Models.Lesson;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetManagementAPI.Controllers;
 
@@ -12,19 +13,17 @@ namespace BudgetManagementAPI.Controllers;
 public class LevelLessonController : ControllerBase
 {
     private readonly UnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
 
-    public LevelLessonController(UnitOfWork unitOfWork, IMapper mapper)
+    public LevelLessonController(UnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
-        _mapper = mapper;
     }
 
     [HttpGet]
     [AllowAnonymous]
     public async Task<IActionResult> GetAllLevelLesson ()
     {
-        var levels =  _unitOfWork.LevelLessons.ToList(); 
+        var levels = await _unitOfWork.LevelLessons.ToListAsync();
         return Ok(levels);
     }
 

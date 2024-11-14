@@ -25,7 +25,7 @@ public class LessonService : ILessonService
         var levelLesson = await _unitOfWork.LevelLessons.FirstOrDefaultAsync(l => l.LevelLessonId == lesson.LevelLessonId);
         if (levelLesson == null)
         {
-            throw new Exception("Nu există nivelul.");
+            throw new ArgumentNullException("Level doesn't exist");
         }
 
         if (lesson.CoverImageFile != null && lesson.CoverImageFile.Length > 0)
@@ -37,6 +37,16 @@ public class LessonService : ILessonService
             }
         }
 
+        if (lesson.CoverImageFile==null)
+        {
+            throw new ArgumentNullException("Cover Image File doesn t exist");
+        }
+
+        if (lesson.ContentLesson == null)
+        {
+            throw new ArgumentNullException("Content lesson doesn t exist");
+        }
+
         if (lesson.ContentLesson != null && lesson.ContentLesson.Length > 0)
         {
             using (var ms = new MemoryStream())
@@ -46,13 +56,14 @@ public class LessonService : ILessonService
                 lesson.LessonContentName = lesson.ContentLesson.FileName;
             }
         }
+        
         var newLesson = new Lesson
         {
             LessonId = lesson.LessonId,
             LevelLessonId = levelLesson.LevelLessonId,
             CoverImageFile = lesson.CoverImageFile,
             CoverImage = lesson.CoverImage,
-            ContentLesson = lesson.ContentLesson,
+            ContentLesson = lesson.ContentLesson!,
             FileText = lesson.FileText,
             LessonContentName = lesson.LessonContentName,
         };
@@ -68,7 +79,10 @@ public class LessonService : ILessonService
     {
         var user = await _unitOfWork.Users
             .FirstOrDefaultAsync(u => u.Id == userId);
-
+        if (user == null)
+        {
+            throw new ArgumentNullException("User doesn t exist");
+        }
         var budgets = await _unitOfWork.Budgets
             .Where(b => b.UserId == userId)
             .ToListAsync();
@@ -97,7 +111,12 @@ public class LessonService : ILessonService
 
         if (user == null)
         {
-            throw new Exception("User not found.");
+            throw new ArgumentNullException("User not found.");
+        }
+
+        if (user.Lessons == null)
+        {
+            throw new ArgumentNullException("Lesson doesn t exist");
         }
 
         var lessonDtos = user.Lessons.Select(l => new LessonDto
@@ -106,7 +125,9 @@ public class LessonService : ILessonService
             LevelLessonId = l.LevelLessonId,
             CoverImage = l.CoverImage,
             FileText = l.FileText,
-            LessonContentName = l.LessonContentName,
+            LessonContentName = l.LessonContentName!,
+            ContentLesson = l.ContentLesson,
+            CoverImageFile = l.CoverImageFile
         })
             .ToList();
 

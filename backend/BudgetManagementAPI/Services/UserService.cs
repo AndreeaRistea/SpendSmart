@@ -1,13 +1,8 @@
 ﻿using AutoMapper;
 using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Entities;
-using BudgetManagementAPI.Models.Budget;
 using BudgetManagementAPI.Models.User;
 using Microsoft.EntityFrameworkCore;
-using AutoMapper.QueryableExtensions;
-using AutoMapper;
 using BudgetManagementAPI.Interfaces;
-using BudgetManagementAPI.Models.Auth;
 
 namespace BudgetManagementAPI.Services;
 
@@ -24,7 +19,10 @@ public class UserService : IUserService
     public async Task<UserDetailsDto> UpdateDetails (UserDetailsUpdateDto userDetailsDto, Guid userId)
     {
         var user = await _unitOfWork.Users.FindAsync(userDetailsDto.UserId);
-        if (user == null) { return null; }
+        if (user == null) 
+        { 
+            throw new ArgumentNullException("User not found"); 
+        }
         user.Income = userDetailsDto.Income;
         user.Profession = userDetailsDto.Profession;
         user.LevelFinancialEducation = userDetailsDto.Level;

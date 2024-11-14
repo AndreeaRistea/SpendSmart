@@ -34,10 +34,10 @@ namespace BudgetManagementAPI.Entities
 
         public DateTime? TimeCodeExpires {  get; set; }
 
-        public List<Transaction> Transactions { get; set; }
+        public List<Transaction>? Transactions { get; set; }
 
-        public List<Budget> UserBudgetCategories { get; set; }
+        public List<Budget>? UserBudgetCategories { get; set; }
 
-        public List<Lesson> Lessons { get; set; }
+        public List<Lesson>? Lessons { get; set; }
     }
 }

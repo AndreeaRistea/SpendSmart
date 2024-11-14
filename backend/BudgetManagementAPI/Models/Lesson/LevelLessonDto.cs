@@ -4,8 +4,8 @@ namespace BudgetManagementAPI.Models.Lesson;
 
 public class LevelLessonDto
 {
-    public Guid LevelLessonId { get; set; }
-    public Level Level { get; set; }
+    public required Guid LevelLessonId { get; set; }
+    public required Level Level { get; set; }
 
     public required double MinValue { get; set; }
 

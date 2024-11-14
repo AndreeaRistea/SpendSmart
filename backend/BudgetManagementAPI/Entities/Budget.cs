@@ -7,10 +7,10 @@ namespace BudgetManagementAPI.Entities;
 public class Budget : BaseEntity
 {
     [Key]
-    public Guid Id { get; set; }
+    public required Guid Id { get; set; }
 
     [ForeignKey(nameof(User))]
-    public Guid? UserId { get; set; }
+    public required Guid UserId { get; set; }
 
     public virtual User User { get; set; }
 
@@ -20,6 +20,6 @@ public class Budget : BaseEntity
     public required float Percent {  get; set; }
 
     public required float TotalPercentageSpent {  get; set; }
-    public virtual ICollection<Transaction> Transactions { get; set; }
+    public virtual ICollection<Transaction>? Transactions { get; set; }
 }
 

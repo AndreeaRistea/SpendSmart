@@ -2,7 +2,7 @@
 
 public class TransactionUpdateDto
 {
-    public Guid TransactionId { get; set; }
-    public double Amount { get; set; }
+    public required Guid TransactionId { get; set; }
+    public required double Amount { get; set; }
 }
 

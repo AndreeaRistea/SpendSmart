@@ -4,12 +4,11 @@ namespace BudgetManagementAPI.Models.Budget;
 
 public class BudgetDto
 {
-    public Guid Id {  get; set; }
-    public Category Category { get; set; }  
-    public float Percent {  get; set; }
-    public float Value {  get; set; }
-    public float TotalPercentageSpent {  get; set; }
-    public float TotalValueSpent {  get; set; }
-    //public float RestSum {  get; set; }
+    public required Guid Id {  get; set; }
+    public required Category Category { get; set; }  
+    public required float Percent {  get; set; }
+    public required float Value {  get; set; }
+    public required float TotalPercentageSpent {  get; set; }
+    public required float TotalValueSpent {  get; set; }
 }
 
