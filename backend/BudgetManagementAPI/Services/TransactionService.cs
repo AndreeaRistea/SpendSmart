@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Entities;
-using BudgetManagementAPI.Enums;
 using BudgetManagementAPI.Interfaces;
-using BudgetManagementAPI.Models.Budget;
-using BudgetManagementAPI.Models.Transaction;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Mail;
 using System.Net;
+using BudgetManagementApi.Dtos.Models.Transaction;
+using BudgetManagementAPI.Entities.Entities;
+using BudgetManagementAPI.Entities.Enums;
 
 namespace BudgetManagementAPI.Services;
 

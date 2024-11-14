@@ -1,5 +1,5 @@
-﻿using BudgetManagementAPI.Enums;
-using BudgetManagementAPI.Models.Transaction;
+﻿using BudgetManagementApi.Dtos.Models.Transaction;
+using BudgetManagementAPI.Entities.Enums;
 
 namespace BudgetManagementAPI.Interfaces;
 

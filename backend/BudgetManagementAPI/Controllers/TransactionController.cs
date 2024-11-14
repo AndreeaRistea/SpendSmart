@@ -1,7 +1,7 @@
-﻿using BudgetManagementAPI.Enums;
+﻿using BudgetManagementApi.Dtos.Models.Transaction;
+using BudgetManagementAPI.Entities.Enums;
 using BudgetManagementAPI.Helpers;
 using BudgetManagementAPI.Interfaces;
-using BudgetManagementAPI.Models.Transaction;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,6 +27,7 @@ public class TransactionController : ControllerBase
         var transaction = await _transactionService.CreateTransactionAsync(userId, transactionDto);
 
         return Ok(transaction);
+        IFormFile a;
     }
 
     [HttpGet("{category}")]

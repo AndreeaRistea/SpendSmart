@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using BudgetManagementAPI.Entities;
-using BudgetManagementAPI.Models.Auth;
-using BudgetManagementAPI.Models.Budget;
-using BudgetManagementAPI.Models.Lesson;
-using BudgetManagementAPI.Models.Transaction;
-using BudgetManagementAPI.Models.User;
+using BudgetManagementApi.Dtos.Models.Auth;
+using BudgetManagementApi.Dtos.Models.Budget;
+using BudgetManagementApi.Dtos.Models.Lesson;
+using BudgetManagementApi.Dtos.Models.Transaction;
+using BudgetManagementApi.Dtos.Models.User;
+using BudgetManagementAPI.Entities.Entities;
 
 namespace BudgetManagementAPI.Mapping;
 

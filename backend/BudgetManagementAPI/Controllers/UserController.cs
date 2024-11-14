@@ -1,13 +1,12 @@
 ﻿using BudgetManagementAPI.Interfaces;
-using BudgetManagementAPI.Models.Auth;
 using Microsoft.AspNetCore.Authorization;
 using static Microsoft.AspNetCore.Http.StatusCodes;
 using Microsoft.AspNetCore.Mvc;
 using BudgetManagementAPI.Helpers;
-using BudgetManagementAPI.Models.Budget;
-using BudgetManagementAPI.Models.User;
 using System.Net.Mail;
 using System.Net;
+using BudgetManagementApi.Dtos.Models.Auth;
+using BudgetManagementApi.Dtos.Models.User;
 
 namespace BudgetManagementAPI.Controllers;
 

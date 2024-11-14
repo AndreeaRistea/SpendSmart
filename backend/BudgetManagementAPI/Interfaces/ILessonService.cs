@@ -1,4 +1,4 @@
-﻿using BudgetManagementAPI.Models.Lesson;
+﻿using BudgetManagementApi.Dtos.Models.Lesson;
 
 namespace BudgetManagementAPI.Interfaces;
 

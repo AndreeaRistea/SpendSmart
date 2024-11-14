@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Entities;
-using BudgetManagementAPI.Enums;
+using BudgetManagementApi.Dtos.Models.Budget;
+using BudgetManagementAPI.Entities.Entities;
+using BudgetManagementAPI.Entities.Enums;
 using BudgetManagementAPI.Interfaces;
-using BudgetManagementAPI.Models.Budget;
-using BudgetManagementAPI.Models.Transaction;
 using Microsoft.EntityFrameworkCore;
 
 namespace BudgetManagementAPI.Services;

@@ -1,4 +1,4 @@
-﻿using BudgetManagementAPI.Entities;
+﻿using BudgetManagementAPI.Entities.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace BudgetManagementAPI.Context

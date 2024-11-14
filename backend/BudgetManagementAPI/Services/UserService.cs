@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Models.User;
+using BudgetManagementApi.Dtos.Models.User;
 using Microsoft.EntityFrameworkCore;
 using BudgetManagementAPI.Interfaces;
 

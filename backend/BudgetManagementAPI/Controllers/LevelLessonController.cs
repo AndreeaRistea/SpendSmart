@@ -1,7 +1,6 @@
-﻿using AutoMapper;
-using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Entities;
-using BudgetManagementAPI.Models.Lesson;
+﻿using BudgetManagementAPI.Context;
+using BudgetManagementApi.Dtos.Models.Lesson;
+using BudgetManagementAPI.Entities.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

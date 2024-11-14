@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Entities;
-using BudgetManagementAPI.Models.Budget;
 
 namespace BudgetManagementAPI.Services;
 

@@ -1,7 +1,5 @@
 ﻿using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Entities;
 using BudgetManagementAPI.Interfaces;
-using BudgetManagementAPI.Models.Auth;
 using BudgetManagementAPI.Utils;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +8,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using BudgetManagementApi.Dtos.Models.Auth;
+using BudgetManagementAPI.Entities.Entities;
 using static BudgetManagementAPI.Utils.PasswordUtils;
-using Microsoft.AspNetCore.Identity.Data;
 
 namespace BudgetManagementAPI.Services;
 

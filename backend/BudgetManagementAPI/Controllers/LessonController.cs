@@ -1,7 +1,6 @@
-﻿using BudgetManagementAPI.Helpers;
+﻿using BudgetManagementApi.Dtos.Models.Lesson;
+using BudgetManagementAPI.Helpers;
 using BudgetManagementAPI.Interfaces;
-using BudgetManagementAPI.Models.Lesson;
-using BudgetManagementAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
