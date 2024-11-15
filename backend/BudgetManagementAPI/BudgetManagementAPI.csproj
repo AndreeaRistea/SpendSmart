@@ -34,6 +34,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BudgetManagementApi.Dtos\BudgetManagementApi.Dtos.csproj" />
     <ProjectReference Include="..\BudgetManagementAPI.Entities\BudgetManagementAPI.Entities.csproj" />
+    <ProjectReference Include="..\BudgetManagementAPI.Services\BudgetManagementAPI.Services.csproj" />
   </ItemGroup>
 
 </Project>

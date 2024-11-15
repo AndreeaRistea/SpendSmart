@@ -1,17 +1,12 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BudgetManagementAPI.Context;
+﻿using BudgetManagementAPI.Entities.Context;
+using BudgetManagementAPI.Services.Interfaces;
+using BudgetManagementAPI.Services.Services;
 using Microsoft.EntityFrameworkCore;
-using BudgetManagementAPI.Interfaces;
-using BudgetManagementAPI.Services;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-namespace BudgetManagement.BgService;
+namespace BudgetManagementAPI.BgService;
 
 public class Program
 {

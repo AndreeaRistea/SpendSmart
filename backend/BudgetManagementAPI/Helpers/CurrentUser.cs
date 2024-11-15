@@ -1,5 +1,5 @@
-﻿using BudgetManagementAPI.Utils;
-using System.Security.Claims;
+﻿using System.Security.Claims;
+using BudgetManagementAPI.Services.Utils;
 
 namespace BudgetManagementAPI.Helpers;
 

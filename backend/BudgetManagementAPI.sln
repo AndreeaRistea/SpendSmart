@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetManagementApi.Dtos", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetManagementAPI.Entities", "BudgetManagementAPI.Entities\BudgetManagementAPI.Entities.csproj", "{8FD7F9AB-850E-4D46-B692-226E9F301D60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetManagementAPI.Services", "BudgetManagementAPI.Services\BudgetManagementAPI.Services.csproj", "{DF1F3ACC-EFE7-46D4-88D7-BD1096EC9C8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8FD7F9AB-850E-4D46-B692-226E9F301D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FD7F9AB-850E-4D46-B692-226E9F301D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FD7F9AB-850E-4D46-B692-226E9F301D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF1F3ACC-EFE7-46D4-88D7-BD1096EC9C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1F3ACC-EFE7-46D4-88D7-BD1096EC9C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1F3ACC-EFE7-46D4-88D7-BD1096EC9C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1F3ACC-EFE7-46D4-88D7-BD1096EC9C8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

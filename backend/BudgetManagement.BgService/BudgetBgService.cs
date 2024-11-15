@@ -1,10 +1,10 @@
-﻿using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Interfaces;
+﻿using BudgetManagementAPI.Entities.Context;
+using BudgetManagementAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace BudgetManagement.BgService;
+namespace BudgetManagementAPI.BgService;
 
 public class BudgetBgService : BackgroundService
 {

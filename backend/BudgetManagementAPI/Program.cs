@@ -1,8 +1,5 @@
-﻿using BudgetManagementAPI.Context;
-using BudgetManagementAPI.Helpers;
-using BudgetManagementAPI.Interfaces;
+﻿using BudgetManagementAPI.Helpers;
 using BudgetManagementAPI.Services;
-using BudgetManagementAPI.Utils;
 using Hangfire;
 using Hangfire.PostgreSql;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -11,6 +8,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using System.Text;
+using BudgetManagementAPI.Entities.Context;
+using BudgetManagementAPI.Services.Interfaces;
+using BudgetManagementAPI.Services.Services;
+using BudgetManagementAPI.Services.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 

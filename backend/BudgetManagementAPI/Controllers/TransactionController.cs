@@ -1,7 +1,7 @@
 ﻿using BudgetManagementApi.Dtos.Models.Transaction;
 using BudgetManagementAPI.Entities.Enums;
 using BudgetManagementAPI.Helpers;
-using BudgetManagementAPI.Interfaces;
+using BudgetManagementAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
