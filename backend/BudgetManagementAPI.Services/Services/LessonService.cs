@@ -23,7 +23,7 @@ public class LessonService : ILessonService
         var levelLesson = await _unitOfWork.LevelLessons.FirstOrDefaultAsync(l => l.LevelLessonId == lesson.LevelLessonId);
         if (levelLesson == null)
         {
-            throw new ArgumentNullException("Level doesn't exist");
+            throw new KeyNotFoundException("Level doesn't exist");
         }
 
         if (lesson.CoverImageFile != null && lesson.CoverImageFile.Length > 0)
@@ -37,12 +37,12 @@ public class LessonService : ILessonService
 
         if (lesson.CoverImageFile==null)
         {
-            throw new ArgumentNullException("Cover Image File doesn t exist");
+            throw new KeyNotFoundException("Cover Image File doesn t exist");
         }
 
         if (lesson.ContentLesson == null)
         {
-            throw new ArgumentNullException("Content lesson doesn t exist");
+            throw new KeyNotFoundException("Content lesson doesn t exist");
         }
 
         if (lesson.ContentLesson != null && lesson.ContentLesson.Length > 0)
@@ -79,7 +79,7 @@ public class LessonService : ILessonService
             .FirstOrDefaultAsync(u => u.Id == userId);
         if (user == null)
         {
-            throw new ArgumentNullException("User doesn t exist");
+            throw new KeyNotFoundException("User doesn t exist");
         }
         var budgets = await _unitOfWork.Budgets
             .Where(b => b.UserId == userId)
@@ -109,12 +109,12 @@ public class LessonService : ILessonService
 
         if (user == null)
         {
-            throw new ArgumentNullException("User not found.");
+            throw new KeyNotFoundException("User not found.");
         }
 
         if (user.Lessons == null)
         {
-            throw new ArgumentNullException("Lesson doesn t exist");
+            throw new KeyNotFoundException("Lesson doesn t exist");
         }
 
         var lessonDtos = user.Lessons.Select(l => new LessonDto

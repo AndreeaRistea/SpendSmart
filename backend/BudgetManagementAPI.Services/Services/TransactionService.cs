@@ -54,12 +54,12 @@ public class TransactionService : ITransactionService
                         t.TransactionId == transactionId);
         if (transaction == null)
         {
-            throw new ArgumentNullException("Transaction not found.");
+            throw new KeyNotFoundException("Transaction not found.");
         }
         var budget = await _unitOfWork.Budgets.FirstOrDefaultAsync(b => b.Id == transaction.BudgetId);
         if (budget == null)
         {
-            throw new ArgumentNullException("Budget not found.");
+            throw new KeyNotFoundException("Budget not found.");
         }
         _unitOfWork.Transactions.Remove(transaction);
         await _unitOfWork.SaveChangesAsync();
@@ -132,7 +132,7 @@ public class TransactionService : ITransactionService
             .FirstOrDefaultAsync(b => b.Id == budgetId);
         if (budget == null)
         {
-            throw new ArgumentNullException("Budget not found");
+            throw new KeyNotFoundException("Budget not found");
         }
         var totalSpent = budget.Transactions?.Sum(x => x.Amount) ?? 0;
         

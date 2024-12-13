@@ -94,7 +94,7 @@ public class BudgetService  : IBudgetService
 
         if (budgetCategory == null)
         {
-            throw new Exception($"Budget category not found.");
+            throw new KeyNotFoundException($"Budget category not found.");
         }
 
         var budgetDto = new BudgetDisplayDto
@@ -145,7 +145,7 @@ public class BudgetService  : IBudgetService
 
         if (existingBudget == null)
         {
-            throw new ArgumentNullException($"Budget not found.");
+            throw new KeyNotFoundException($"Budget not found.");
         }
         existingBudget.Percent = budgetUpdateDto.Percent; 
         var newBudget = new Budget
@@ -170,7 +170,7 @@ public class BudgetService  : IBudgetService
 
         if (budgetToDelete == null) 
         {
-            throw new ArgumentNullException("Budget not found.");
+            throw new KeyNotFoundException("Budget not found.");
             
         }
 
