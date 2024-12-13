@@ -64,7 +64,9 @@
         "FinancialEducation":"Selectează nivelul de educație financiară",
         "Save":"Salvează modificările",
         "Edit":"Actualizează",
-        "Close": "Inchide"
+        "Close": "Inchide",
+        "SelectCurrency": "Selecteaza moneda",
+        "Currency": "Moneda:"
     },
     "password": {
         "ResetPassword": "Resetează parola",
@@ -112,5 +114,15 @@
         "Cancel":"Anulare",
         "ConfirmDeleteTitle": "Confirmă Ștergerea",
         "ConfirmDeleteMessage": "Ești sigur că vrei să ștergi aceasta tranzactie?"
+    },
+    "currency":{
+        "0": "€",
+        "Euro": "€",
+        "1": "Ron",
+        "Ron":"Ron",
+        "2": "$",
+        "Dollar":"$",
+        "3":"£",
+        "BritishPound":"£"
     }
 }

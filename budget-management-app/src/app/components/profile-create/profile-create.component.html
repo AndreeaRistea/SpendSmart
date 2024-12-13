@@ -3,7 +3,7 @@
     <mat-label>{{ "profile.SelectProfession" | translate }}</mat-label>
     <mat-select formControlName="profession">
       <mat-option
-        *ngFor="let profession of dropdownValues"
+        *ngFor="let profession of professionDropdownValues"
         [value]="profession.value"
       >
         {{ profession.name }}
@@ -23,7 +23,17 @@
       {{ "profile.IncomeRequired" | translate }}
     </mat-error>
   </mat-form-field>
-
+  <mat-form-field class="mx-5 my-5">
+    <mat-label>{{ "profile.SelectCurrency" | translate }}</mat-label>
+    <mat-select formControlName="currency">
+      <mat-option
+        *ngFor="let currency of currencyDropdownValues"
+        [value]="currency.value"
+      >
+        {{ currency.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <mat-form-field class="mx-5 my-5">
     <mat-label>{{ "profile.FinancialEducation" | translate }}</mat-label>
     <mat-select formControlName="levelFinancialEducation">

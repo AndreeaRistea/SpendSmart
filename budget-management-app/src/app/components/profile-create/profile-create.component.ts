@@ -14,6 +14,8 @@ import { UserDetailsDto } from '../../models/userDetailsDto';
 import { Level } from '../../enums/level';
 import { ProfessionDisplay } from '../../enums/professionDisplay';
 import { LevelDisplay } from '../../enums/levelDisplay';
+import { Currency } from '../../enums/currency';
+import { CurrencyDisplay } from '../../enums/currencyDisplay';
 
 @Component({
   selector: 'app-profile-create',
@@ -24,8 +26,10 @@ export class ProfileCreateComponent {
   detailsForm!: FormGroup;
   profession!: Profession;
   LevelFinancialEducation!: Level;
+  Currency!: Currency;
   levelDropdownValues: Option[] = [];
-  dropdownValues: Option[] = [];
+  professionDropdownValues: Option[] = [];
+  currencyDropdownValues: Option[] = [];
   constructor(
     public dialogRef: MatDialogRef<ProfileCreateComponent>,
     @Inject(MAT_DIALOG_DATA) public userDetails: UserDetailsDto,
@@ -33,16 +37,19 @@ export class ProfileCreateComponent {
     private fb: FormBuilder,
     private router: Router
   ) {
-    this.dropdownValues = Object.keys(Profession).map((key) => {
+    this.professionDropdownValues = Object.keys(Profession).map((key) => {
       return new Option({ name: key, value: key });
     });
     this.levelDropdownValues = Object.keys(Level).map((key) => {
       return new Option({ name: key, value: key });
     });
-
+    this.currencyDropdownValues = Object.keys(Currency).map((key) => {
+      return new Option({ name: key, value: key });
+    });
     console.log(userDetails);
     this.detailsForm = this.fb.group({
       income: [userDetails.Income, Validators.required],
+      currency: [userDetails.Currency, Validators.required],
       profession: [
         ProfessionDisplay[userDetails.Profession],
         Validators.required,
@@ -72,18 +79,13 @@ export class ProfileCreateComponent {
             updatedDetails.income,
             updatedDetails.profession,
             updatedDetails.levelFinancialEducation,
+            updatedDetails.currency,
             userID
           )
           .subscribe({
             next: (resp) => {
-              // this.userDetails.Income = updatedDetails.income;
-              // this.userDetails.Profession = updatedDetails.profession;
-              // this.userDetails.LevelFinancialEducation =
-              //   updatedDetails.levelFinancialEducation;
-              // this.profileService.getUserDetails().subscribe((details) => {
-              //   this.userDetails = details;
-              //   console.log(this.userDetails);
-              // });
+              localStorage.removeItem('currency');
+              localStorage.setItem('currency', resp.Currency);
               console.log(resp);
               console.log(userID);
               this.dialogRef.close(this.userDetails);

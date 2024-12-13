@@ -1,38 +1,42 @@
 ﻿using BudgetManagementAPI.Entities.Context;
 using BudgetManagementAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Validations;
 
 namespace BudgetManagementAPI.BgService;
 
 public class BudgetBgService : BackgroundService
 {
-    private readonly ILogger<BudgetBgService> _logger;
-    private readonly ILessonService _lessonService;
-    private readonly UnitOfWork _unitOfWork;
+    private readonly IServiceScopeFactory _providerFactory;
 
-    public BudgetBgService(ILogger<BudgetBgService> logger, ILessonService lessonService, UnitOfWork unitOfWork)
+    public BudgetBgService(IServiceScopeFactory providerFactory)
     {
-        _logger = logger;
-        _lessonService = lessonService;
-        _unitOfWork = unitOfWork;
+        _providerFactory = providerFactory;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-
-            var users = await _unitOfWork.Users.ToListAsync();
-
-            foreach (var user in users)
+            if (DateTime.UtcNow.Day != 1)
             {
-                await _lessonService.AddLessonsToUserAsync(user.Id);
+                await Task.Delay(60000, stoppingToken); // Rulează la fiecare 60 de secunde
             }
 
-            await Task.Delay(60000, stoppingToken); // Rulează la fiecare 60 de secunde
+            using var scope = _providerFactory.CreateScope();
+
+            var uoW = scope.ServiceProvider.GetRequiredService<UnitOfWork>();
+            
+            var budgets = await uoW.Budgets.ToListAsync();
+
+            foreach (var budget in budgets)
+            {
+               budget.TotalPercentageSpent = 0; 
+            }
+            await uoW.SaveChangesAsync();   
         }
     }
 }

@@ -1,3 +1,5 @@
+import { Currency } from '../enums/currency';
+import { CurrencyDisplay } from '../enums/currencyDisplay';
 import { LevelDisplay } from '../enums/levelDisplay';
 import { ProfessionDisplay } from '../enums/professionDisplay';
 
@@ -8,4 +10,5 @@ export class UserDetailsDto {
   Income: number = 0;
   Profession!: ProfessionDisplay;
   LevelFinancialEducation!: LevelDisplay;
+  Currency!: Currency;
 }

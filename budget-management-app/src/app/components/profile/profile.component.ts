@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileCreateComponent } from '../profile-create/profile-create.component';
 import { LevelDisplay } from '../../enums/levelDisplay';
+import { CurrencyDisplay } from '../../enums/currencyDisplay';
+import { Currency } from '../../enums/currency';
 
 @Component({
   selector: 'app-profile',
@@ -17,8 +19,10 @@ export class ProfileComponent implements OnInit {
   userDetails!: UserDetailsDto;
   profession = ProfessionDisplay;
   level = LevelDisplay;
+  currencyDisplay = Currency;
   userLevelFinancialEducation: Option[] = [];
   userProfession: Option[] = [];
+  currency: Option[] = [];
   constructor(
     private profileService: ProfileService,
     private router: Router,

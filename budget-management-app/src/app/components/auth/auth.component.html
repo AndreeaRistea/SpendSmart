@@ -1,5 +1,5 @@
 <div class="logo-container auth-logo">
-  <button class="logo">SS</button>
+  <button class="logo">Smart</button>
   <div class="logo-text">Spend Smart</div>
 </div>
 <div class="auth" *ngIf="showAuth">
@@ -83,18 +83,6 @@
     <div class="budget">
       <form [formGroup]="detailsForm" (ngSubmit)="onDetailsSave()">
         <mat-form-field>
-          <mat-label>{{ "profile.SelectProfession" | translate }}</mat-label>
-          <mat-select formControlName="profession">
-            <mat-option
-              *ngFor="let profession of dropdownValues"
-              [value]="profession.value"
-            >
-              {{ profession.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
           <input
             matInput
             formControlName="income"
@@ -107,6 +95,29 @@
           >
             {{ "details.IncomeRequired" | translate }}
           </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ "profile.SelectCurrency" | translate }}</mat-label>
+          <mat-select formControlName="currency">
+            <mat-option
+              *ngFor="let currency of currencyDropdownValues"
+              [value]="currency.value"
+            >
+              {{ currency.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>{{ "profile.SelectProfession" | translate }}</mat-label>
+          <mat-select formControlName="profession">
+            <mat-option
+              *ngFor="let profession of professionDropdownValues"
+              [value]="profession.value"
+            >
+              {{ profession.name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field>

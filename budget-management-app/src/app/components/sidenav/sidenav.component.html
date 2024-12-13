@@ -1,6 +1,6 @@
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
   <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">SS</button>
+    <button class="logo" (click)="toggleCollapse()">Smart</button>
     <div class="logo-text" @fadeInOut *ngIf="collapsed">Spend Smart</div>
   </div>
   <ul *ngIf="sessionService.validUser" class="sidenav-nav">

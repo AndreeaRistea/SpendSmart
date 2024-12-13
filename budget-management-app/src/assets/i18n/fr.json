@@ -63,7 +63,9 @@
         "FinancialEducation":"Sélectionnez le niveau d'éducation financière",
         "Save":"Sauvegarder",
         "Edit":"Éditer",
-        "Close": "Fermer"
+        "Close": "Fermer",
+        "SelectCurrency": "Choisir la devise",
+        "Currency": "Devise:"
     },
     "password": {
         "ResetPassword": "Réinitialiser le mot de passe",
@@ -110,5 +112,15 @@
         "Cancel":"Annuler",
         "ConfirmDeleteTitle": "Confirmer la suppression",
         "ConfirmDeleteMessage":"Êtes-vous sûr de vouloir supprimer cette transaction ?"
+    },
+    "currency":{
+        "0": "€",
+        "Euro": "€",
+        "1": "Ron",
+        "Ron":"Ron",
+        "2": "$",
+        "Dollar":"$",
+        "3":"£",
+        "BritishPound":"£"
     }
 }

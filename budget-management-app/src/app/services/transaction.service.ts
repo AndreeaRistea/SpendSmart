@@ -10,24 +10,11 @@ import { TransactionDto } from '../models/transactionDto';
 export class TransactionService {
   constructor(private httpService: HttpService) {}
 
-  // addTransaction(
-  //   category: Category,
-  //   amount: Number,
-  //   description: string,
-  //   transactionProcessingTime: string
-  // ) {
-  //   return this.httpService.post('Transaction/add', {
-  //     category: category,
-  //     amount: amount,
-  //     description: description,
-  //     transactionProcessingTime: transactionProcessingTime,
-  //   });
-  // }
   addTransaction(transactionData: any): Observable<TransactionDto> {
     return this.httpService.post('Transaction/add', transactionData);
   }
   getTransactionByCategory(category: Category): Observable<TransactionDto[]> {
-    return this.httpService.get(`Transaction/${category}`);
+    return this.httpService.get(`Transaction[]/${category}`);
   }
   getAllTransactions(): Observable<TransactionDto[]> {
     return this.httpService.get('Transaction');

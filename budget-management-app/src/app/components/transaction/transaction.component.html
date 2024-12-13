@@ -8,6 +8,7 @@
     <i class="fa-solid fa-plus"></i>
     {{ "transaction.AddTransaction" | translate }}
   </button>
+
   <div id="transactionList">
     <div *ngIf="transactions.length === 0">
       <p class="mt-4" style="margin-left: 25%">
@@ -21,7 +22,8 @@
             {{ categoryDisplay[transaction.Category] }}
           </h5>
           <p class="card-text">
-            {{ "transaction.Amount" | translate }} {{ transaction.Amount }} €
+            {{ "transaction.Amount" | translate }}
+            {{ transaction.Amount }} {{ getCurrency() }}
           </p>
           <p class="card-text">
             {{ "transaction.Description" | translate }}

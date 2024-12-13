@@ -14,7 +14,13 @@
       <p>{{ "profile.Email" | translate }} {{ userDetails.Email }}</p>
     </li>
     <li>
-      <p>{{ "profile.Income" | translate }} {{ userDetails.Income }} €</p>
+      <p>{{ "profile.Income" | translate }} {{ userDetails.Income }}</p>
+    </li>
+    <li>
+      <p>
+        {{ "profile.Currency" | translate }}
+        {{ "currency." + userDetails.Currency | translate }}
+      </p>
     </li>
     <li>
       <p>

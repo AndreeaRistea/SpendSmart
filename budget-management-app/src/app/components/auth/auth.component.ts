@@ -8,6 +8,7 @@ import { Profession } from '../../enums/profession';
 import { ProfileService } from '../../services/profile.service';
 import { Option } from '../../helpers/option';
 import { Level } from '../../enums/level';
+import { Currency } from '../../enums/currency';
 
 @Component({
   selector: 'app-auth',
@@ -23,8 +24,9 @@ export class AuthComponent implements OnInit {
   showAuth = true;
 
   detailsForm!: FormGroup;
-  dropdownValues: Option[] = [];
+  professionDropdownValues: Option[] = [];
   levelDropdownVlues: Option[] = [];
+  currencyDropdownValues: Option[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -59,7 +61,7 @@ export class AuthComponent implements OnInit {
       ],
     });
 
-    this.dropdownValues = Object.keys(Profession).map((key) => {
+    this.professionDropdownValues = Object.keys(Profession).map((key) => {
       return new Option({ name: key, value: key });
     });
 
@@ -67,10 +69,15 @@ export class AuthComponent implements OnInit {
       return new Option({ name: key, value: key });
     });
 
-    console.log(this.dropdownValues);
+    this.currencyDropdownValues = Object.keys(Currency).map((key) => {
+      return new Option({ name: key, value: key });
+    });
+
+    console.log(this.professionDropdownValues);
     this.detailsForm = this.fb.group({
       income: [''],
-      profession: [this.dropdownValues[0]],
+      currency: [this.currencyDropdownValues[0]],
+      profession: [this.professionDropdownValues[0]],
       levelFinancialEducation: [this.levelDropdownVlues[0]],
     });
   }
@@ -93,6 +100,7 @@ export class AuthComponent implements OnInit {
           this.loginForm.reset();
           localStorage.setItem('userId', res.Id);
           localStorage.setItem('token', res.Token);
+          localStorage.setItem('currency', res.Currency);
           this.router.navigate(['home']);
         },
         error: (err) => {
@@ -119,11 +127,13 @@ export class AuthComponent implements OnInit {
             const profession = this.detailsForm.controls['profession'].value;
             const level =
               this.detailsForm.controls['levelFinancialEducation'].value;
+            const currency = this.detailsForm.controls['currency'].value;
             this.profileService
               .updateUserDetails(
                 income,
                 profession.value,
                 level.value,
+                currency.value,
                 signupResponse.Id
               )
               .subscribe({
@@ -131,6 +141,7 @@ export class AuthComponent implements OnInit {
                   console.log(resp);
                   localStorage.setItem('userId', signupResponse.Id);
                   localStorage.setItem('token', signupResponse.Token);
+                  localStorage.setItem('currency', signupResponse.Currency);
                   this.router.navigate(['home']);
                 },
                 error: (err) => {

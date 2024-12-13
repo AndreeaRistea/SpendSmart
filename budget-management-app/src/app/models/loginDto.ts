@@ -1,3 +1,5 @@
+import { Currency } from '../enums/currency';
+
 export class LoginDto {
   Id: string = '';
   Name: string = '';
@@ -5,4 +7,5 @@ export class LoginDto {
   Password: string = '';
   Token: string = '';
   RefreshToken: string = '';
+  Currency!: Currency;
 }

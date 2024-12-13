@@ -12,11 +12,11 @@
   .logo-container .logo {
 	background: #fff;
 	text-align: center;
-	width: 3rem;
-	min-width: 3rem;
+	width: 4rem;
+	min-width: 2rem;
 	border-radius: 0.313rem;
 	padding: 0.313rem;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 900;
 	cursor: pointer;
 	border: none;

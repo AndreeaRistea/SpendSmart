@@ -9,6 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { BudgetUpdateComponent } from '../budget-update/budget-update.component';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Currency } from '../../enums/currency';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-budget',
@@ -28,7 +30,8 @@ export class BudgetComponent implements OnInit {
     private budgetService: BudgetService,
     private router: Router,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -111,5 +114,10 @@ export class BudgetComponent implements OnInit {
       0
     );
     return Math.max(0, 100 - totalAllocated);
+  }
+
+  getCurrency(): string {
+    var currency = 'currency.' + localStorage.getItem('currency');
+    return this.translate.instant(currency);
   }
 }

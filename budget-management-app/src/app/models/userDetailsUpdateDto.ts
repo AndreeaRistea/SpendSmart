@@ -3,4 +3,5 @@ export class UserDto {
   Income: number = 0;
   Profession: string = '';
   LevelFinancialEducation: string = '';
+  Currency: string = '';
 }

@@ -10,6 +10,7 @@ import { CategoryDisplay } from '../../enums/categoryDisplay';
 import { MatDialog } from '@angular/material/dialog';
 import { TransactionUpdateComponent } from '../transaction-update/transaction-update.component';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-transaction',
@@ -20,13 +21,14 @@ export class TransactionComponent implements OnInit {
   transactions: TransactionDto[] = [];
   category!: Category;
   categoryDisplay = CategoryDisplay;
-  dropdownValues: Option[] = [];
+  //dropdownValues: Option[] = [];
 
   constructor(
     private transactionService: TransactionService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +38,7 @@ export class TransactionComponent implements OnInit {
       console.log(this.transactions);
     });
   }
+
   addNewTransaction() {
     this.router.navigate(['transaction-create']);
   }
@@ -78,5 +81,9 @@ export class TransactionComponent implements OnInit {
         this.loadTransaction();
       }
     });
+  }
+  getCurrency(): string {
+    var currency = 'currency.' + localStorage.getItem('currency');
+    return this.translate.instant(currency);
   }
 }

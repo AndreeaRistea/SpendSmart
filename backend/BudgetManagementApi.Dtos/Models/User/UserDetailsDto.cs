@@ -10,5 +10,6 @@ public class UserDetailsDto
     public required double Income { get; set; }
     public required Profession Profession {  get; set; }
     public required Level LevelFinancialEducation { get; set; }
+    public required Currency Currency { get; set; }
 }
 

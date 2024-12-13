@@ -28,9 +28,10 @@
                     budget.Percent +
                     "%"
                   : round(budget.TotalValueSpent) +
-                    "€ / " +
+                    getCurrency() +
+                    "/ " +
                     round(budget.Value) +
-                    "€"
+                    getCurrency()
               }}
             </p>
             <div class="button-group">

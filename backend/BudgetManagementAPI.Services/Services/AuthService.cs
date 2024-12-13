@@ -143,8 +143,6 @@ public class AuthService : IAuthService
             new(nameof(ClaimTypes.Email), user.Email)
         };
 
-        //var key = new SymmetricSecurityKey(
-        //    Encoding.UTF8.GetBytes(_configuration[Constants.Token.JwtKey] ?? throw new InvalidOperationException()));
         string jwtKey = _configuration[Constants.Token.JwtKey];
         if (string.IsNullOrEmpty(jwtKey))
         {

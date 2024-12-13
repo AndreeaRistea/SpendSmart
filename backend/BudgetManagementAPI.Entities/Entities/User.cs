@@ -16,12 +16,14 @@ namespace BudgetManagementAPI.Entities.Entities
 
         public required double Income { get; set; }
         
-
         [Column(TypeName = "text")]
         public Profession Profession { get; set; }
 
         [Column(TypeName = "text")]
         public Level LevelFinancialEducation { get; set; }
+
+        [Column(TypeName = "text")]
+        public Currency Currency { get; set; }
 
         public string? RefreshToken {  get; set; }
 

@@ -26,6 +26,7 @@ public class UserService : IUserService
         user.Income = userDetailsDto.Income;
         user.Profession = userDetailsDto.Profession;
         user.LevelFinancialEducation = userDetailsDto.Level;
+        user.Currency = userDetailsDto.Currency;
         await _unitOfWork.SaveChangesAsync();
         var mappedUser = _mapper.Map<UserDetailsDto>(user);
         return new UserDetailsDto
@@ -36,6 +37,7 @@ public class UserService : IUserService
             Name = mappedUser.Name,
             Profession = mappedUser.Profession,
             LevelFinancialEducation = mappedUser.LevelFinancialEducation,
+            Currency = mappedUser.Currency,
         };
     } 
 
@@ -51,6 +53,7 @@ public class UserService : IUserService
             Name = mappedUser.Name,
             Profession = mappedUser.Profession,
             LevelFinancialEducation = mappedUser.LevelFinancialEducation,
+            Currency = mappedUser.Currency,
         };
     }
 
